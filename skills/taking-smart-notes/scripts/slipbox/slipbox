@@ -3,4 +3,21 @@
 # suggest-links, search --semantic, moc, reindex) load the ONNX runtime
 # correctly — the `bun build --compile` toolchain doesn't bundle the
 # native addon, so the compiled binary at bin/slipbox is partial.
-exec bun run "$(dirname "$0")/src/cli.ts" "$@"
+#
+# The plugin ships source only; dependencies are installed here on first use
+# so a fresh install works without a manual setup step.
+set -euo pipefail
+here="$(cd "$(dirname "$0")" && pwd)"
+if ! command -v bun >/dev/null 2>&1; then
+  if [[ -x "$HOME/.bun/bin/bun" ]]; then
+    export PATH="$HOME/.bun/bin:$PATH"
+  else
+    echo "slipbox: bun is required but was not found on PATH or at ~/.bun/bin (install: https://bun.sh)" >&2
+    exit 127
+  fi
+fi
+if [[ ! -d "$here/node_modules" ]]; then
+  echo "slipbox: first run, installing dependencies..." >&2
+  (cd "$here" && bun install --frozen-lockfile >/dev/null)
+fi
+exec bun run "$here/src/cli.ts" "$@"

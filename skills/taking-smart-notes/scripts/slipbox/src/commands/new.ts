@@ -44,25 +44,6 @@ register("new", async (args) => {
     },
     body: `# ${titleValue}\n`,
   });
-  // Auto-reindex
-  const { embedTexts } = await import("../embedding/model");
-  const { saveSidecar } = await import("../embedding/sidecar");
-  const { hashBody } = await import("../embedding/staleness");
-  const { statSync } = await import("node:fs");
-  const body = `# ${titleValue}\n`;
-  const [vec] = await embedTexts([body]);
-  if (vec) {
-    const stat = statSync(zettelPath(sb, slug));
-    saveSidecar(sb, slug, {
-      slug,
-      embedding: Array.from(vec),
-      dim: vec.length,
-      model: process.env.SLIPBOX_MODEL ?? "BAAI/bge-m3",
-      content_sha256: hashBody(body),
-      mtime_ns: Number(stat.mtimeNs),
-      indexed_at: Math.floor(Date.now() / 1000),
-    });
-  }
   console.log(`created ${zettelPath(sb, slug)}`);
   return 0;
 });

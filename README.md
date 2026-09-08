@@ -30,9 +30,9 @@ The disciplines are original, built against failure modes specific to agents: co
 
 `taking-smart-notes` ships a TypeScript CLI covering the slip-box loop: `new`, `link`/`unlink`, `show` (with computed back-references), `search` (full-text and `--semantic`), `rename`, `check [--strict]`, `stats`, `clusters`, `moc`, `audit`, `init`, `reindex`, plus the `belief` subcommand family (`new`/`list`/`show`/`link`/`review`/`revise`) used by `holding-beliefs`.
 
-It lives at `scripts/slipbox/slipbox` inside the `taking-smart-notes` skill directory, wherever the plugin is installed — the skill's load-time base directory gives the absolute path. The shim wraps `bun run src/cli.ts`.
+It lives at `scripts/slipbox/slipbox` inside the `taking-smart-notes` skill directory, wherever the plugin is installed — the skill's load-time base directory gives the absolute path. The shim wraps `bun run src/cli.ts` and installs the CLI's dependencies on first use.
 
-**Requirements:** [Bun](https://bun.sh). Embedding subcommands (`reindex`, `similar`, `search --semantic`, `suggest-links`, `moc`) download the BAAI/bge-m3 model (~600 MB) on first `reindex`; everything else works without it. `suggest-links` and `moc` use an LLM judge resolved from `SLIPBOX_LLM_JUDGE_CMD`, then `claude`, then `codex` on PATH.
+**Requirements:** [Bun](https://bun.sh) on PATH or at `~/.bun/bin`. Embedding subcommands (`reindex`, `similar`, `search --semantic`, `suggest-links`, `moc`) download the BAAI/bge-m3 model — **2.2 GB**, into the CLI's `node_modules` — the first time any of them runs; `new`, `link`, `check`, and the rest never touch the model. `suggest-links` and `moc` use an LLM judge resolved from `SLIPBOX_LLM_JUDGE_CMD`, then `claude`, then `codex` on PATH.
 
 The internal tooling roadmap is in `docs/TOOLS.md`.
 

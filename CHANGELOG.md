@@ -2,6 +2,15 @@
 
 ## Unreleased
 
+### First-run experience (2026-09-08)
+
+Found by a cold-start run of the marketplace-installed plugin, where the first `slipbox new` failed on module resolution and then pulled a multi-gigabyte model just to create a note.
+
+- **The launcher installs its own dependencies.** The plugin ships CLI source without `node_modules`; `scripts/slipbox/slipbox` now runs `bun install --frozen-lockfile` when they are missing, and falls back to `~/.bun/bin` when `bun` is not on PATH (non-login shells).
+- **`slipbox new` no longer loads the embedding model.** It used to embed the title-only skeleton, which went stale the moment the body was written; every semantic command already re-embeds stale zettels on demand. Creating a note is now instant and never triggers the model download.
+- **Honest model size.** README and `taking-smart-notes` said ~600 MB on first `reindex`; the download is 2.2 GB and fires on the first semantic command of any kind.
+- **Belief revision log no longer reads "After Spawned after …".** `slipbox belief new --note` is written verbatim as the created entry, matching `revise` and `review`; `holding-beliefs` documents the entry shape as `Spawned after <trigger>: <one-line reason>.`
+
 ### Skill-map consolidation and hardening (2026-07-28)
 
 - **Merged `learning-beliefs` into `holding-beliefs`.** Every formation path already ended in holding-beliefs, and the n=1 gate, four-question check, and commit mechanics were stated in both files (one had drifted once). The merged skill keeps the five formation moments and articulation move; the shared machinery is stated once (The commit / The n=1 gate / Trigger 1b).

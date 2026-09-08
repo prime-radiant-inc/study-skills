@@ -23,6 +23,26 @@ describe("slipbox belief new", () => {
     expect(text).toContain("— created");
   });
 
+  test("writes --note verbatim as the created entry, without prepending 'After'", async () => {
+    const tmp = mkdtempSync(join(tmpdir(), "sb-bn-"));
+    mkdirSync(join(tmp, "notes/zettel"), { recursive: true });
+    const cli = `${process.cwd()}/src/cli.ts`;
+    const r = await $`bun run ${cli} belief new b --scope=personal --title="B" --falsifier="F" --note="Spawned after reading X: the claim held up"`.cwd(tmp).nothrow().quiet();
+    expect(r.exitCode).toBe(0);
+    const text = readFileSync(join(tmp, "notes/beliefs/b.md"), "utf-8");
+    expect(text).toContain("— created\nSpawned after reading X: the claim held up\n");
+    expect(text).not.toContain("After Spawned");
+  });
+
+  test("without --note the created entry says so instead of inventing a trigger", async () => {
+    const tmp = mkdtempSync(join(tmpdir(), "sb-bn-"));
+    mkdirSync(join(tmp, "notes/zettel"), { recursive: true });
+    const cli = `${process.cwd()}/src/cli.ts`;
+    await $`bun run ${cli} belief new b --scope=personal --title="B" --falsifier="F"`.cwd(tmp).nothrow().quiet();
+    const text = readFileSync(join(tmp, "notes/beliefs/b.md"), "utf-8");
+    expect(text).toContain("— created\nInitial belief; no trigger noted.\n");
+  });
+
   test("creates trade-scoped belief in trade-namespaced repo", async () => {
     const tmp = mkdtempSync(join(tmpdir(), "sb-bn-"));
     mkdirSync(join(tmp, "notes/trades/tpm/zettel"), { recursive: true });

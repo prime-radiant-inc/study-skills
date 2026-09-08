@@ -97,7 +97,7 @@ schema_version: 1
 
 # Revision log
 ## YYYY-MM-DD — created
-After <trigger>: <initial belief>.
+Spawned after <trigger>: <one-line reason>.
 ## YYYY-MM-DD — reviewed (no change)
 Re-read while <task>; still holds because <reason>.
 ## YYYY-MM-DD — refined

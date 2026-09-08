@@ -44,8 +44,8 @@ registerBeliefSub("new", async (args) => {
     return 1;
   }
   const today = todayIso();
-  const trigger = note ?? "no trigger noted";
-  const body = `\n# Why I hold this\n\n(Reasoning, in your own voice.)\n\n# Revision log\n## ${today} — created\nAfter ${trigger}: initial belief.\n`;
+  const entry = note ?? "Initial belief; no trigger noted.";
+  const body = `\n# Why I hold this\n\n(Reasoning, in your own voice.)\n\n# Revision log\n## ${today} — created\n${entry}\n`;
   saveBelief(sb, slug, scope, {
     frontmatter: {
       title,

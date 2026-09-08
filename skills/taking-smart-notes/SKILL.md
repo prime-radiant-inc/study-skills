@@ -58,7 +58,7 @@ Each requirement has a why; the why is the test of whether you can skip it.
 
 Use `slipbox new <slug>` to create the skeleton — don't hand-write the file. The tool validates the slug as kebab-case, refuses to overwrite, populates `created:` with today's date, fills `source:` (a literal relative path if it contains a slash, otherwise resolved as `../sources/<slug>.md`), and initialises `links: []`. **Why:** every zettel created by hand in early sessions was inconsistent in some small way — missing field, wrong source-path format, slug-vs-title mismatch. The tool catches all of those by construction.
 
-**Invocation:** the `slipbox` CLI ships with this skill at `scripts/slipbox/slipbox`, relative to this skill's directory — the base directory announced when the skill loads. Requires Bun. Commands in this skill are written as bare `slipbox`; substitute the full path.
+**Invocation:** the `slipbox` CLI ships with this skill at `scripts/slipbox/slipbox`, relative to this skill's directory — the base directory announced when the skill loads. Requires Bun; the launcher installs its own dependencies on first use. `new`, `link`, and `check` are instant; the first semantic command (`similar`, `search --semantic`, `suggest-links`, `moc`, `reindex`) downloads a 2.2 GB embedding model. Commands in this skill are written as bare `slipbox`; substitute the full path.
 
 ```bash
 slipbox new <slug> --source=<source-slug-or-path> --title="<one-line statement of the idea>"
