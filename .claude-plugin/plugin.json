@@ -1,6 +1,6 @@
 {
   "name": "study-skills",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "description": "Skills for durable agent learning across sessions: analytical reading that produces artifacts, a cross-linked slip-box with a bundled CLI, first-person beliefs with falsifiers and revision logs, mid-task experience capture with conservative synthesis, a four-test gate for distilling new skills, and read-only deliberation forks at high-stakes decision points. Original disciplines built against agent-specific failure modes (context evaporation, verbalism, silent absorption, premature convergence), empirically pressure-tested; the reading and note-taking foundations adapt frameworks from Adler, Ahrens, Booth, and Klein, credited in the README.",
   "author": {
     "name": "Jesse Vincent",

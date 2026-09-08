@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## v0.8.0 — 2026-09-08
 
 ### First-run experience (2026-09-08)
 
