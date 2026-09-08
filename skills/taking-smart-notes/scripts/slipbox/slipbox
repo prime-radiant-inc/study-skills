@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# slipbox v1 launcher. Uses `bun run` so embedding subcommands (similar,
+# suggest-links, search --semantic, moc, reindex) load the ONNX runtime
+# correctly — the `bun build --compile` toolchain doesn't bundle the
+# native addon, so the compiled binary at bin/slipbox is partial.
+exec bun run "$(dirname "$0")/src/cli.ts" "$@"

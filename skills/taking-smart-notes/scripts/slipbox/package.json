@@ -1,0 +1,21 @@
+{
+  "name": "slipbox",
+  "version": "0.1.0-dev",
+  "type": "module",
+  "module": "src/index.ts",
+  "bin": { "slipbox": "./bin/slipbox" },
+  "scripts": {
+    "build": "bun build src/cli.ts --compile --outfile bin/slipbox",
+    "test": "bun test",
+    "lint": "biome check .",
+    "format": "biome format --write ."
+  },
+  "dependencies": {
+    "@huggingface/transformers": "^3.0.0",
+    "gray-matter": "^4.0.3"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.0",
+    "@types/bun": "latest"
+  }
+}
