@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- **`slipbox check --strict` catches silent review bumps.** A belief whose `last_reviewed` is newer than its latest revision-log entry is a schema issue: the date was edited by hand, since `belief review`/`revise` always write both. Found by the RED baseline below, where Haiku hand-edited the file in 1 of 20 runs and dropped the entry.
+
 - **holding-beliefs loses its anti-performance section.** A 40-run RED baseline (Sonnet and Haiku, with and without the section, under authority and time pressure to "just bump it") never once produced the failure it forbade: every run loaded the belief body before touching it and every note named the case. Per writing-skills, guidance without a demonstrated failure goes; the section and the two rationalization rows the scenario exercised are deleted, and Trigger 3's contract stands alone. Evidence: `docs/examples/2026-09-09-anti-performance-red-baseline.md`, which also records the description micro-tests for the "your human partner" wording (48/48 unchanged).
 
 ## v0.8.1 — 2026-09-09

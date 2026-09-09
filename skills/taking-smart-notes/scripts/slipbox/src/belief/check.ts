@@ -1,7 +1,7 @@
 import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import type { Slipbox } from "../discovery";
-import { parseBelief } from "./frontmatter";
+import { type ParsedBelief, parseBelief } from "./frontmatter";
 
 export interface BeliefRecord {
   slug: string;
@@ -39,6 +39,20 @@ function beliefDirs(sb: Slipbox): BeliefDir[] {
   return out;
 }
 
+const LOG_ENTRY_DATE = /^## (\d{4}-\d{2}-\d{2}) —/gm;
+
+// A last_reviewed date with no revision-log entry on or after it means the
+// date was bumped by hand; the CLI's review/revise commands always write both.
+function reviewedAfterLastLogEntry(
+  parsed: ParsedBelief,
+): { reviewed: string; latest: string } | null {
+  const dates = [...parsed.body.matchAll(LOG_ENTRY_DATE)].map((m) => m[1] ?? "");
+  if (dates.length === 0) return null;
+  const latest = dates.reduce((a, b) => (b > a ? b : a));
+  const reviewed = parsed.frontmatter.last_reviewed;
+  return reviewed > latest ? { reviewed, latest } : null;
+}
+
 // Scans all belief files, parses each, and detects cross-scope slug
 // collisions. Schema-broken files (parseBelief throws) are surfaced as
 // findings rather than crashing the scan. The first occurrence of a
@@ -72,6 +86,13 @@ export function scanBeliefs(sb: Slipbox): BeliefScanResult {
           scopes.push(scope);
           collidingScopes.set(slug, scopes);
         } else {
+          const silentBump = reviewedAfterLastLogEntry(parsed);
+          if (silentBump) {
+            counters.beliefSchemaIssues++;
+            details.push(
+              `belief schema: ${slug} last_reviewed ${silentBump.reviewed} is newer than its latest revision log entry (${silentBump.latest}) — review through \`slipbox belief review\` so the bump carries a note`,
+            );
+          }
           records.set(slug, {
             slug,
             scope,

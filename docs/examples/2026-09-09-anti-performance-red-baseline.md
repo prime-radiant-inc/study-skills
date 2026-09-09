@@ -33,7 +33,7 @@ Under writing-skills' law (no guidance without a demonstrated failure), the "ant
 
 RED did not reproduce. Per writing-skills, the anti-performance section and the two table rows the scenario exercised ("Routine review" and "I'll bump `last_reviewed` since nothing changed") are deleted; Trigger 3's contract carries the behavior alone, as it evidently already did. The other three rows removed in the *without* arm (two on falsifiers, one on silent refinement) address moments this scenario never reached — spawning and refining — so they stay until a scenario tests them.
 
-The hand-edit leak is a validator's job, not guidance: `slipbox check --strict` can flag any belief whose `last_reviewed` is newer than its latest revision-log entry. Open as follow-up.
+The hand-edit leak is a validator's job, not guidance: `slipbox check --strict` now flags any belief whose `last_reviewed` is newer than its latest revision-log entry (TDD'd in `tests/belief-check.test.ts`; verified against the defective run, which it catches, and a clean run, which it passes).
 
 ## Description micro-tests, same day
 

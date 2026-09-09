@@ -41,6 +41,38 @@ Body.
     expect(r.stdout.toString() + r.stderr.toString()).toMatch(/falsifier|schema/);
   });
 
+  test("last_reviewed newer than the latest revision-log entry is flagged", async () => {
+    const tmp = mkdtempSync(join(tmpdir(), "sb-bc-"));
+    mkdirSync(join(tmp, "notes/zettel"), { recursive: true });
+    const cli = `${process.cwd()}/src/cli.ts`;
+    await $`bun run ${cli} belief new b1 --scope=personal --title="B" --falsifier="F"`
+      .cwd(tmp)
+      .quiet();
+    // Hand-bump the date without touching the log: the silent review the CLI would refuse.
+    const bp = join(tmp, "notes/beliefs/b1.md");
+    const t = readFileSync(bp, "utf-8");
+    writeFileSync(bp, t.replace(/^last_reviewed: .*$/m, "last_reviewed: 2099-01-01"));
+    const r = await $`bun run ${cli} check --strict`.cwd(tmp).nothrow().quiet();
+    expect(r.exitCode).not.toBe(0);
+    expect(r.stdout.toString() + r.stderr.toString()).toMatch(
+      /last_reviewed.*newer than.*revision log/,
+    );
+  });
+
+  test("review through the CLI keeps last_reviewed and the log in step", async () => {
+    const tmp = mkdtempSync(join(tmpdir(), "sb-bc-"));
+    mkdirSync(join(tmp, "notes/zettel"), { recursive: true });
+    const cli = `${process.cwd()}/src/cli.ts`;
+    await $`bun run ${cli} belief new b1 --scope=personal --title="B" --falsifier="F"`
+      .cwd(tmp)
+      .quiet();
+    await $`bun run ${cli} belief review b1 --note="Re-read against case X; still holds."`
+      .cwd(tmp)
+      .quiet();
+    const r = await $`bun run ${cli} check --strict`.cwd(tmp).nothrow().quiet();
+    expect(r.exitCode).toBe(0);
+  });
+
   test("asymmetric belief→zettel link flagged", async () => {
     const tmp = mkdtempSync(join(tmpdir(), "sb-bc-"));
     mkdirSync(join(tmp, "notes/zettel"), { recursive: true });
