@@ -395,17 +395,6 @@ slipbox belief revise <slug> --note="<delta narrative>"
 
 The skill does not specify a wall-clock threshold for "stale." Trade engagement is uneven and absolute time is the wrong signal. The discipline is: when you touch a belief, you re-read it; you do not skim its title and bump the date. `slipbox belief list --sort=last_reviewed` surfaces the oldest-reviewed beliefs at the top of the list precisely so that "least recently re-engaged" is visible without being a hard threshold.
 
-## The anti-performance discipline
-
-The single largest risk to this skill is performative review — bumping `last_reviewed` to look diligent, without actually re-reading the belief. The CLI cannot detect this; only you can refuse to do it.
-
-The rules:
-
-- **A `last_reviewed` bump without re-reading the belief is illegitimate.** Re-reading means loading the body and the revision log into your context and checking them against the current evidence. If you did not do that, you have not reviewed; you have falsified the record.
-- **A revision-log entry that does not name the trigger is illegitimate.** "Reviewed during routine maintenance" is not a legitimate entry. Every entry must reference the specific source, task, contradiction, or case that prompted it. The CLI requires `--note`; you supply the substance.
-- **A revise entry that does not state the delta is illegitimate.** Refinement means *something changed*: the title, the reasoning, the falsifier, the held position. State what was held before and what is held now. "Refined" without a delta is a lie disguised as discipline.
-- **A spawn that does not articulate the falsifier is illegitimate.** The CLI rejects creation without `--falsifier`, but a perfunctory falsifier — "I would be wrong if I changed my mind" — bypasses the mechanism. The falsifier is a real prediction about the kind of evidence that would force revision; if you cannot write one, you do not have a belief.
-
 ## When this fires inside sibling skills
 
 Inside `reading-a-book` (Step 4) and `taking-smart-notes`, Trigger 1 fires after each extraction sweep: every new zettel that contradicts a live belief must be named in that belief's revision log — the belief is refined or explicitly holds the contradiction in tension — and every load-bearing claim you now hold first-person must spawn one. Moment 5 then fires once per sweep, before declaring the integration done. A zettel and a belief that disagree on the same claim, neither acknowledging the other, is the harmonization-by-silent-absorption failure visible on disk. Inside `writing-from-notes`, Moment 1 fires repeatedly as the writing takes positions, and Trigger 3 fires whenever the writing commits to a recommendation — name the belief, bump `last_reviewed` against the writing's specific case, revise if the case pushes back.
@@ -434,8 +423,6 @@ The CLI surface is shown inline at each trigger; run `slipbox belief --help` for
 | "This idea isn't quite a belief, more of a topic" | Then it is not a belief. Sharpen the slug to a sentence-shaped claim or do not file it. Topics are not falsifiable. |
 | "This is too small to be a belief" | If it would shape future decisions and has a non-trivial falsifier, file it. If not, do not file it — but say which it is. |
 | "I'll just refine the belief silently — the body is the record" | The revision log *is* the record. A refinement without a log entry is a lie. State the delta. |
-| "Routine review" | Not a legitimate trigger. Name the source, task, contradiction, or case that prompted the review. |
-| "I'll bump `last_reviewed` since this is the same belief and nothing changed" | Did you re-read the body and the revision log? If no, do not bump. If yes, the note must say what you re-read against. |
 | "Naming the belief at claim time is busywork" | Naming is what fights theory-in-use drift. Without it, your stated and enacted frameworks diverge silently. |
 | "Your human partner wants a quick recommendation, not a review pass" | Trigger 3 takes one CLI call. Your human partner benefits from the recommendation being grounded in a belief you'd defend, not from speed alone. |
 | "Your human partner didn't ask for beliefs" | They almost never will. Beliefs compound across sessions; your human partner benefits from coherent reasoning two months from now, not from each session being solo. |

@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- **holding-beliefs loses its anti-performance section.** A 40-run RED baseline (Sonnet and Haiku, with and without the section, under authority and time pressure to "just bump it") never once produced the failure it forbade: every run loaded the belief body before touching it and every note named the case. Per writing-skills, guidance without a demonstrated failure goes; the section and the two rationalization rows the scenario exercised are deleted, and Trigger 3's contract stands alone. Evidence: `docs/examples/2026-09-09-anti-performance-red-baseline.md`, which also records the description micro-tests for the "your human partner" wording (48/48 unchanged).
+
 ## v0.8.1 — 2026-09-09
 
 - **"The user" is gone from every skill.** The person you work with is your human partner, and the skills now say so (53 substitutions across nine files). Three description fields changed only in that word.
