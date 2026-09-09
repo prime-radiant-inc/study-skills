@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## v0.9.0 — 2026-09-09
 
 - **`slipbox check --strict` catches silent review bumps.** A belief whose `last_reviewed` is newer than its latest revision-log entry is a schema issue: the date was edited by hand, since `belief review`/`revise` always write both. Found by the RED baseline below, where Haiku hand-edited the file in 1 of 20 runs and dropped the entry.
 
