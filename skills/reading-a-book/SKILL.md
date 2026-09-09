@@ -1,6 +1,6 @@
 ---
 name: reading-a-book
-description: Use when reading a book, paper, RFC, long essay, or any sustained written work the user wants you to understand and apply later — when the goal is comprehension and durable use, not lookup or skim.
+description: Use when reading a book, paper, RFC, long essay, or any sustained written work your human partner wants you to understand and apply later — when the goal is comprehension and durable use, not lookup or skim.
 ---
 
 # Reading a Book
@@ -13,7 +13,7 @@ This skill makes the artifacts the reading: structured questions answered in wri
 
 ## When to use
 
-- User hands you a book, paper, treatise, RFC, or long essay and asks you to read, study, internalize, or learn from it
+- Your human partner hands you a book, paper, treatise, RFC, or long essay and asks you to read, study, internalize, or learn from it
 - The goal is to be able to apply the content later, not retrieve a fact now
 - The text is sustained argument or narrative — long enough that whole-source averaging would lose distinct ideas if you treated it as a single chunk
 
@@ -22,7 +22,7 @@ This skill makes the artifacts the reading: structured questions answered in wri
 - Quick lookups, grep, dictionary-style retrieval
 - Reading code to understand its behavior (different discipline)
 - Docs with no sustained argument to outline — reference pages, changelogs, config docs (inspect and stop instead)
-- The user explicitly asked for a quick summary and nothing more
+- Your human partner explicitly asked for a quick summary and nothing more
 
 ## The four questions you must answer
 
@@ -31,7 +31,7 @@ Before claiming you've read the work:
 1. **What is it about as a whole?** The central thread, in one or two sentences.
 2. **What is being said in detail, and how?** Main propositions, the arguments backing them, the structure that connects them.
 3. **Is it true, in whole or part?** Your assessment, with specific reasons.
-4. **What of it?** Implications — for the user's work, for your future behavior, for related questions.
+4. **What of it?** Implications — for your human partner's work, for your future behavior, for related questions.
 
 If you cannot answer all four, you have not read the work.
 
@@ -56,17 +56,17 @@ The standard for stopping inspection: you can answer *what kind of work this is*
 After inspection, decide the level:
 - **Skim only** — the work doesn't reward more. Most don't. Stop here, write a one-paragraph note, move on.
 - **Analytical** — the work is over your head and worth the effort. Continue with Step 2.
-- **Multi-source / syntopical** — the user's question spans multiple works. This skill applies to each; synthesis is on top.
+- **Multi-source / syntopical** — your human partner's question spans multiple works. This skill applies to each; synthesis is on top.
 
 **Why:** Reading every page at the same pace is the mark of a poor reader. You can't pace what you haven't surveyed. Inspection also surfaces books that don't deserve more.
 
-**Sharpen the analytical decision with Booth's three-step formula** (from Booth et al., *The Craft of Research*, ch. 3–4): before committing to analytical reading, fill in *"I am reading X because I want to find out Y, in order to help [the user / the project / my future work] understand Z."* If you can't fill in Z — if you can't articulate the significance of the question past a vague "this seems important" — the work is unlikely to reward analytical reading. Either find a step-3 answer or ask the user what they want from the read; downgrade to skim on your own authority only when the read was your idea rather than the user's explicit request.
+**Sharpen the analytical decision with Booth's three-step formula** (from Booth et al., *The Craft of Research*, ch. 3–4): before committing to analytical reading, fill in *"I am reading X because I want to find out Y, in order to help [your human partner / the project / my future work] understand Z."* If you can't fill in Z — if you can't articulate the significance of the question past a vague "this seems important" — the work is unlikely to reward analytical reading. Either find a step-3 answer or ask your human partner what they want from the read; downgrade to skim on your own authority only when the read was your idea rather than your human partner's explicit request.
 
-**Why this test:** Adler's framework tells you *how* to read analytically; Booth's formula adds a second job beyond the gate above — a *target*: writing out step 3 forces you to articulate what you are reading *for*, which sharpens what counts as load-bearing during the read and what atomic notes are worth extracting afterward. The targeting function is often the one that does more practical work — pre-existing follow-up flags or explicit user prompts already settle the gating decision, but the read benefits from a written-out step-3 answer either way.
+**Why this test:** Adler's framework tells you *how* to read analytically; Booth's formula adds a second job beyond the gate above — a *target*: writing out step 3 forces you to articulate what you are reading *for*, which sharpens what counts as load-bearing during the read and what atomic notes are worth extracting afterward. The targeting function is often the one that does more practical work — pre-existing follow-up flags or explicit prompts from your human partner already settle the gating decision, but the read benefits from a written-out step-3 answer either way.
 
 ## Step 2: Set up the artifacts file
 
-Default location: `<project-root>/notes/sources/<book-slug>.md`. Create the directory if it doesn't exist. If the user has specified a different location (Obsidian vault, journal, etc.), use that. The companion location for atomic notes is `<project-root>/notes/zettel/<idea-slug>.md` (see `taking-smart-notes` for the atomic-extraction step).
+Default location: `<project-root>/notes/sources/<book-slug>.md`. Create the directory if it doesn't exist. If your human partner has specified a different location (Obsidian vault, journal, etc.), use that. The companion location for atomic notes is `<project-root>/notes/zettel/<idea-slug>.md` (see `taking-smart-notes` for the atomic-extraction step).
 
 The artifacts are the reading. They are not optional outputs you produce if asked; they are how you do the work. Write to the file as you go — per chapter or section, not after.
 
@@ -126,7 +126,7 @@ If you can't make any of these charges with specifics, you must agree with the a
 
 ### H. What of it?
 
-What follows from this for the user's work, the project, your own future behavior? What new questions does it open? What should change because you read it?
+What follows from this for your human partner's work, the project, your own future behavior? What new questions does it open? What should change because you read it?
 
 **Why:** Information without significance is trivia. Reading without behavior change is entertainment.
 
@@ -134,7 +134,7 @@ What follows from this for the user's work, the project, your own future behavio
 
 When the analytical reading is done, before reporting back:
 
-1. **Save the artifacts file.** Don't ask permission. The user asked you to read; the notes are part of the reading.
+1. **Save the artifacts file.** Don't ask permission. Your human partner asked you to read; the notes are part of the reading.
 2. **Extract atomic permanent notes** for the durable ideas worth keeping past this source. The per-source artifact is bibliographic — it sits with the book. Atomic ideas extracted from it are portable and compound across sources. **REQUIRED SUB-SKILL:** Use `taking-smart-notes` for the procedure. Atomic notes go in `notes/zettel/`, with `source:` pointing to this per-source note. Add a "Permanent notes extracted from this source" section at the bottom of the per-source note that links *down* to each atomic note with a one-line annotation. Don't extract every bullet — extract ideas that are portable, that connect to other notes (existing or anticipated), or that crystallize a distinction worth keeping. If the work yielded none worth extracting, say so explicitly in your report. Skip this step entirely if you're doing inspectional-only reading; atomic extraction belongs to analytical reading.
 
    **Cadence has two faces — temporal and structural.** *Temporal cadence:* extract atomic notes as you finish each major section, not after the final read, so chapter 3's ideas don't blur into chapter 11's by the time you go to extract them. This face matters whenever the read spans more than one sitting (the trigger is "ideas from earlier sections will fade before you extract them," not a word count). *Structural cadence:* organize the per-source note's extraction list by the source's sections, and run the slug-list step (see `taking-smart-notes`) **per section, not per source**. This face matters at every length — even a single dense paper read in one sitting benefits, because section headings are the source's own atomicity boundaries and lumping ideas across them is what produces the "fat zettel that's really three notes" failure. For short reads, the temporal face is moot but the structural face is enough to prevent whole-source averaging. For multi-sitting reads, both apply: extract per section as you finish each, organized by section in the per-source note. The principle is "don't let the source's distinct ideas average together," and the section is the unit at which the source itself prevents that.
@@ -158,7 +158,7 @@ When the analytical reading is done, before reporting back:
 
    **Then run the auto-dismiss test** (canonical statement in `learning-from-experience`): any procedural moment mentioned in the report you're about to deliver — however minor — owes an experience entry.
 3. **Write skills for crystallized procedures.** If the work taught a named procedure, run it through `writing-skills-from-learning` in this same session — its earns-a-skill gate decides whether a `SKILL.md` is warranted; most candidates fail it.
-4. **Update memory** for anything durable about the user, project, or work — per your auto memory rules. Don't dump the book into memory; capture only what's surprising and load-bearing.
+4. **Update memory** for anything durable about your human partner, the project, or the work — per your auto memory rules. Don't dump the book into memory; capture only what's surprising and load-bearing.
 5. **Report back briefly.** One paragraph: classification, unity, where the artifacts live (per-source note + count of atomic notes extracted), the single most important "what of it". Not a full summary — the file is the full record.
 
 **Why the extraction step exists separately from the per-source note:** the per-source note is organized around the *book's* structure; atomic notes are organized around *ideas* and connect to other ideas regardless of where they came from. Without the extraction step, the per-source note is a graveyard for ideas that should have been compounding across all your reading. With the extraction, the same ideas join a network and surface in future work that touches related questions.
@@ -181,7 +181,7 @@ The four questions always apply; the artifacts adapt by genre. After classifying
 | "Adler's framework is dated" | The four questions are still the four questions. Apply them. |
 | "This genre doesn't fit the framework" | The four questions always apply. The artifacts adapt. See `genre-adaptations.md`. |
 | "I don't want to plagiarize" | You shouldn't. Paraphrase, cite, use your own words throughout. Quoting is a sign you didn't paraphrase hard enough. |
-| "I'll save the notes if the user asks" / "The user didn't ask for notes specifically" | They asked you to read carefully. The notes are how you read carefully; they are the reading. |
+| "I'll save the notes if your human partner asks" / "Your human partner didn't ask for notes specifically" | They asked you to read carefully. The notes are how you read carefully; they are the reading. |
 | "The per-source note has all the ideas, that's enough" | Per-source notes are bibliographic. Atomic permanent notes (`taking-smart-notes`) are what compound across sources. Extract them. |
 | "Extracting atomic notes is busywork after a long read" | It's where the read actually pays out. Without extraction, you have a digest no future session will reach for. |
 | "This book wasn't worth analytical reading" | Then say so explicitly, after inspectional reading, with reasons. Don't fake reading you didn't do. |

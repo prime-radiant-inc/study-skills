@@ -7,13 +7,13 @@ description: Use when starting a substantive piece of writing — essay, summary
 
 ## Why this skill exists
 
-The default when the user asks for a substantive piece of writing is to synthesize from scratch in the current conversation. Whatever the agent has read, written, or noted in past sessions is invisible at composition time, so each piece reinvents the wheel and loses the durable value of accumulated work.
+The default when your human partner asks for a substantive piece of writing is to synthesize from scratch in the current conversation. Whatever the agent has read, written, or noted in past sessions is invisible at composition time, so each piece reinvents the wheel and loses the durable value of accumulated work.
 
 Ahrens's argument in *How to Take Smart Notes* (2017/2022): the blank-page panic is a symptom, not a starting condition. If you've been taking permanent notes across past reading and work, the topic you're about to write about already has notes that cluster around it — material that argued itself worth keeping at the time it was captured. The outline of the piece falls out of the cluster, not out of the writer's head. This skill is the procedure for actually doing that.
 
 ## When to use
 
-- The user asks for an essay, post, summary, design doc, position paper, or other substantive piece — anything past a quick answer, with a thesis or structure worth outlining
+- Your human partner asks for an essay, post, summary, design doc, position paper, or other substantive piece — anything past a quick answer, with a thesis or structure worth outlining
 - The topic is plausibly something you or the project has encountered before
 - The notes/ directory has accumulated content (per-source notes from `reading-a-book`, atomic permanent notes from `taking-smart-notes`, or both)
 
@@ -21,7 +21,7 @@ Ahrens's argument in *How to Take Smart Notes* (2017/2022): the blank-page panic
 
 - Short outputs, immediate questions, code/config edits — nothing to outline, so no cluster to consult
 - Genuinely novel topic with no plausible related notes (do the writing directly, but consider whether the result should produce smart notes after; see Step 6)
-- The user explicitly wants a quick first take and has signaled "don't go researching"
+- Your human partner explicitly wants a quick first take and has signaled "don't go researching"
 
 ## Identify the output type before outlining
 
@@ -34,7 +34,7 @@ If the piece is mostly informational with one or two argumentative subclaims, th
 
 **Why this matters:** treating an argument like a summary produces a list of facts with no thesis ("here's some stuff about X"); treating a summary like an argument inflates it with claims and warrants the material doesn't earn ("the evidence shows that X must be Y," when really you're just reporting what's there). The shape has to match the rhetorical move.
 
-Decide the type before outlining and tell the user which you're producing if it's not obvious from their request. If they wanted the other type, finding out now is much cheaper than after a draft.
+Decide the type before outlining and tell your human partner which you're producing if it's not obvious from their request. If they wanted the other type, finding out now is much cheaper than after a draft.
 
 ## The procedure (rigid)
 
@@ -119,7 +119,7 @@ Additional constraints **for arguments specifically** — the five-element check
 
 ### Step 6: Extract new notes back into the slip-box
 
-After the piece is drafted (and ideally before the user reviews), look at it and ask:
+After the piece is drafted (and ideally before your human partner reviews), look at it and ask:
 
 - **Did I make a claim in this piece that wasn't already in a note?** If yes, and the claim is durable, extract it as a permanent note (`taking-smart-notes`). Cite the piece as the source.
 - **Did the act of writing surface a connection between existing notes I hadn't linked?** Add the link; both directions.
@@ -129,13 +129,13 @@ After the piece is drafted (and ideally before the user reviews), look at it and
 
 ### Step 7: Report back
 
-When delivering the piece, briefly tell the user:
+When delivering the piece, briefly tell your human partner:
 
 - Where the piece drew from (a count is enough: "drew on N existing notes plus M sources")
 - What you added to the slip-box as a result
 - Any gaps that you flagged for follow-up
 
-**Why:** transparency about provenance lets the user decide if the piece needs more sourcing, and the slip-box updates make the durable work visible.
+**Why:** transparency about provenance lets your human partner decide if the piece needs more sourcing, and the slip-box updates make the durable work visible.
 
 ## Rationalization table
 
@@ -147,13 +147,13 @@ When delivering the piece, briefly tell the user:
 | "The notes disagree with each other and that's confusing" | That's the piece. Find what the disagreement is *about* and write that. |
 | "The claims I extracted from the piece are unverified" | Mark them as your own synthesis (not borrowed) and accept that they may need revision later. Permanent notes are open to revision. |
 | "The notes are my notes; I already know what's in them" | You don't. The slip-box's value is that it surfaces things you've forgotten. |
-| "The user wants speed" | The piece is faster *and* better when the foundation is already there. The search is minutes. |
+| "Your human partner wants speed" | The piece is faster *and* better when the foundation is already there. The search is minutes. |
 | "Extracting new notes after writing is busywork" | It's the only way the piece improves the next piece. |
 | "I should just brainstorm" | Brainstorming is what you do when you don't have notes. You have notes. |
 
 ## Worked example
 
-User asks: "Can you write a short piece on what makes constitutional design robust against majority oppression?"
+Your human partner asks: "Can you write a short piece on what makes constitutional design robust against majority oppression?"
 
 Step 1 turns up `notes/sources/federalist-10.md` (per-source) and `notes/zettel/extend-the-sphere-only-works-with-cross-cutting-cleavages.md`, `notes/zettel/structural-restraint-beats-virtue-restraint.md`, `notes/zettel/faction-defined-by-injustice-not-size.md` (atomic).
 

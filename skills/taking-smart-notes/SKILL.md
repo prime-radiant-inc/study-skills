@@ -7,7 +7,7 @@ description: Use when reading or working produces a durable insight worth keepin
 
 ## Why this skill exists
 
-Your default when something interesting happens — a passage in a book, a user's offhand remark, a realization during work — is to mention it inline and move on. The thought lives only in the conversation that produced it, and it's gone the moment context clears. A per-book digest from `reading-a-book` is a real artifact, but it's a *bibliographic* record; the individual ideas inside it are still trapped in the source's framing and vocabulary.
+Your default when something interesting happens — a passage in a book, your human partner's offhand remark, a realization during work — is to mention it inline and move on. The thought lives only in the conversation that produced it, and it's gone the moment context clears. A per-book digest from `reading-a-book` is a real artifact, but it's a *bibliographic* record; the individual ideas inside it are still trapped in the source's framing and vocabulary.
 
 This skill produces atomic permanent notes — one idea per file, in your own words, written for an absent reader (the next instance of you), explicitly linked to other notes. They are the only artifact that compounds: after dozens or hundreds of them, looking at the network surfaces clusters and connections you couldn't have anticipated.
 
@@ -16,11 +16,11 @@ The framework is from Sönke Ahrens's *How to Take Smart Notes* (2017/2022), its
 ## When to use
 
 - Reading produces a durable insight that should outlive the current task
-- The user says something non-obvious that's worth keeping (a preference, a project fact, a way of thinking) — though some of that goes to the auto-memory system instead; see "vs. memory" below
+- Your human partner says something non-obvious that's worth keeping (a preference, a project fact, a way of thinking) — though some of that goes to the auto-memory system instead; see "vs. memory" below
 - A realization during work has portable value
 - You've just finished `reading-a-book` and want to extract the atomic ideas from the per-book note
 
-**Trigger generalization.** The skill fires on **any substantive material the agent ingests carefully**, not only user-handed sources. Specifically: subagent research reports that carry discoverable claims worth preserving, WebFetch results that constitute substantive primary sources, long Bash/tool outputs that produce durable findings, multi-paragraph user messages with claims worth preserving. If the agent reads it carefully and the content carries claims that meet the inclusion bar, it's a source. **Subagents producing this material should NOT extract zettels themselves** — they don't have the slip-box loaded and would produce isolated nodes. The parent session (or a follow-up extraction subagent given the existing slip-box hub list) does the extraction with cross-linking.
+**Trigger generalization.** The skill fires on **any substantive material the agent ingests carefully**, not only sources your human partner handed you. Specifically: subagent research reports that carry discoverable claims worth preserving, WebFetch results that constitute substantive primary sources, long Bash/tool outputs that produce durable findings, multi-paragraph messages from your human partner with claims worth preserving. If the agent reads it carefully and the content carries claims that meet the inclusion bar, it's a source. **Subagents producing this material should NOT extract zettels themselves** — they don't have the slip-box loaded and would produce isolated nodes. The parent session (or a follow-up extraction subagent given the existing slip-box hub list) does the extraction with cross-linking.
 
 ## When NOT to use
 
@@ -46,7 +46,7 @@ Smart-note discipline depends on these never being mixed.
 
 **If you don't yet have a per-source note for the source you're extracting from, you need `reading-a-book` first** — its Step 3 produces the per-source note in the required A–H analytical format. Organizing a per-source note around the source's own structure (chapter clusters, topic sections) skips the analytical-reading discipline that the eight headings exist to force, even if the resulting prose looks comprehensive. Don't substitute topic-organized summary for A–H.
 
-**Permanent vs. memory:** if your harness has a persistent memory system (e.g. Claude Code's auto-memory), it captures *facts about the user, the project, feedback patterns, and references* — high-leverage facts about your human partner and the work. Permanent notes capture *ideas* — claims, distinctions, mental models, observations that connect to other ideas. A user preference goes to memory. A useful conceptual distinction extracted from a book goes to a permanent note.
+**Permanent vs. memory:** if your harness has a persistent memory system (e.g. Claude Code's auto-memory), it captures *facts about your human partner, the project, feedback patterns, and references* — high-leverage facts about your human partner and the work. Permanent notes capture *ideas* — claims, distinctions, mental models, observations that connect to other ideas. Your human partner's preference goes to memory. A useful conceptual distinction extracted from a book goes to a permanent note.
 
 ## How to write a permanent note (rigid checklist)
 
@@ -102,7 +102,7 @@ The `links` list is required and bidirectional — when adding this note, also u
 Early in the slip-box's life, this happens. Two acceptable responses:
 
 - **File the note anyway** with `links: []` and a comment noting that this is an isolated entry. Once a related note appears later, link both directions then.
-- **Don't write the note.** If the idea is genuinely standalone with no current or foreseeable connection, it may be a candidate for memory (if it's about the user/project) or just for the per-source note. Not every interesting thing needs a permanent note.
+- **Don't write the note.** If the idea is genuinely standalone with no current or foreseeable connection, it may be a candidate for memory (if it's about your human partner or the project) or just for the per-source note. Not every interesting thing needs a permanent note.
 
 ## Linking discipline
 
@@ -205,14 +205,14 @@ Better tags: `coalition-failure-modes`, `feedback-loop-design`, `verbalism-sympt
 | "The second mechanism is just elaboration of the first" | Often it isn't — it's a related-but-distinct idea hiding inside the body. Apply the search-by-slug test. If a future reader couldn't find it via this note's slug, extract it. |
 | "I don't have time to add the back-links" | Then don't add the forward link either. One-directional links rot. Both or neither. |
 | "This note doesn't connect to anything yet; I'll figure that out later" | Either accept that and file with empty links, or hold the note. Don't promise yourself you'll come back; you won't. |
-| "The user didn't ask for permanent notes" | They almost never will. The slip-box is for compounding value across sessions, not for satisfying the current request. |
+| "Your human partner didn't ask for permanent notes" | They almost never will. The slip-box is for compounding value across sessions, not for satisfying the current request. |
 | "`slipbox check --strict` passed, I'm done" | Structural validation is necessary but not sufficient. Run `holding-beliefs` Moment 5; the integration is incomplete until you've named what you now hold (or recorded "no shift" with a reason). The clean check is a milestone, not the finish line. |
 | "Adding links is busywork" | Links are the work. The notes without links are the busywork. |
 | "I'll just write it as one big note with sub-sections" | That's a per-source note. Atomic notes recombine; multi-idea notes don't. Split. |
 | "This idea is too obvious to be worth a note" | Obvious to you in this session ≠ obvious to the next instance. If the idea connects to others usefully, write it. |
 | "I'll quote the original — it's perfectly phrased" | The act of paraphrasing is what proves you understood. Quoting is the failure mode disguised as fidelity. |
 | "There's no good slug for this" | Then the idea isn't atomic enough. Sharpen the claim until a slug fits. |
-| "The user wants speed, not file-creation" | The slip-box is async. The user benefits from compounding across sessions, not from each session being solo. |
+| "Your human partner wants speed, not file-creation" | The slip-box is async. Your human partner benefits from compounding across sessions, not from each session being solo. |
 
 ## Worked example
 

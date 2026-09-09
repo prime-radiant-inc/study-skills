@@ -1,6 +1,6 @@
 ---
 name: holding-beliefs
-description: Use when catching yourself making a load-bearing claim you haven't named as a belief; unable to articulate why you're invoking a skill; noticing a defendable pattern across your own work; feeling unnamed resistance to a claim while reading; finishing a chapter, coherent argument, or zettel-extraction sweep; receiving a research subagent's report; hitting a debugging surprise or substantive user pushback; before committing to a substantive recommendation, plan, or extraction; or starting non-trivial work in a domain with prior beliefs.
+description: Use when catching yourself making a load-bearing claim you haven't named as a belief; unable to articulate why you're invoking a skill; noticing a defendable pattern across your own work; feeling unnamed resistance to a claim while reading; finishing a chapter, coherent argument, or zettel-extraction sweep; receiving a research subagent's report; hitting a debugging surprise or substantive pushback from your human partner; before committing to a substantive recommendation, plan, or extraction; or starting non-trivial work in a domain with prior beliefs.
 ---
 
 # Holding Beliefs
@@ -9,7 +9,7 @@ description: Use when catching yourself making a load-bearing claim you haven't 
 
 The slip-box discipline (`reading-a-book`, `taking-smart-notes`, `writing-from-notes`) captures *what sources claim*. It does not capture *what you currently hold true*. When a new source contradicts an earlier one, the existing skills extract both as zettels and link them; nothing forces you to notice that *your own* prior position was challenged, name the contradiction, and either revise your position or hold it in tension on the record.
 
-The failure mode is harmonization-by-silent-absorption: a new claim slides in alongside an old one, both get filed, and the integrated model in your head — the model you'll actually reason from when the user asks the next case-shaped question — drifts without an audit trail. The agent looks well-read and reasons incoherently.
+The failure mode is harmonization-by-silent-absorption: a new claim slides in alongside an old one, both get filed, and the integrated model in your head — the model you'll actually reason from when your human partner asks the next case-shaped question — drifts without an audit trail. The agent looks well-read and reasons incoherently.
 
 A belief is the artifact that fights this. It is a first-person, falsifiable, revisable position with a revision log. It is *yours*, not a source's. You hold it under pressure to abandon it; you revise it on the record when evidence forces revision; you retire it when it has been replaced. Beliefs run alongside zettels, not instead of them.
 
@@ -29,7 +29,7 @@ Maintenance cues (external — events land on you):
 
 - You finished a chapter, paper, or coherent argument that touches a load-bearing claim
 - A research subagent's report just landed and contains discoverable claims
-- A user pushed back on something you said, and the pushback has substance
+- Your human partner pushed back on something you said, and the pushback has substance
 - A debugging surprise contradicted what you expected reality to do
 - A tool failure revealed a wrong assumption about the environment
 - You're about to commit to a substantive recommendation, plan, or extraction in a domain
@@ -40,7 +40,7 @@ Maintenance cues (external — events land on you):
 - Trivial fact lookup; one-off answers with no domain stake
 - Project-specific scaffolding (those go to `notes/projects/`, not the belief set)
 - Pure source-claim capture — that's `taking-smart-notes`, the zettel does the work
-- User preferences and project facts — those go to memory
+- Your human partner's preferences and project facts — those go to memory
 - Single conversational opinions you wouldn't defend a session from now
 
 ## What a belief is — distinct from a zettel and a per-source note
@@ -169,7 +169,7 @@ The test: *would this apply across multiple trades?* If the answer is clearly ye
 ### Body — two required sections
 
 - **`# Why I hold this`** — the reasoning, in your own voice, not source paraphrase. This is the self-explanation pass. Without it, the belief is unjustified-by-you and is just a zettel by another name.
-- **`# Revision log`** — a chronological record of every touch. Each entry is dated, names the trigger (a source slug, a subagent report, a user-pushback moment, a debug discovery), and states what happened: created, reviewed (no change), refined, retired, superseded. Refinements include the delta — what was held before, what is held now.
+- **`# Revision log`** — a chronological record of every touch. Each entry is dated, names the trigger (a source slug, a subagent report, a pushback moment from your human partner, a debug discovery), and states what happened: created, reviewed (no change), refined, retired, superseded. Refinements include the delta — what was held before, what is held now.
 
 ## The commit — canonical, three steps
 
@@ -410,7 +410,7 @@ The rules:
 
 Inside `reading-a-book` (Step 4) and `taking-smart-notes`, Trigger 1 fires after each extraction sweep: every new zettel that contradicts a live belief must be named in that belief's revision log — the belief is refined or explicitly holds the contradiction in tension — and every load-bearing claim you now hold first-person must spawn one. Moment 5 then fires once per sweep, before declaring the integration done. A zettel and a belief that disagree on the same claim, neither acknowledging the other, is the harmonization-by-silent-absorption failure visible on disk. Inside `writing-from-notes`, Moment 1 fires repeatedly as the writing takes positions, and Trigger 3 fires whenever the writing commits to a recommendation — name the belief, bump `last_reviewed` against the writing's specific case, revise if the case pushes back.
 
-This skill is also independently invokable: debugging, user conversation, research dispatch, code review — any work can fire a moment or trigger with no sibling skill in scope.
+This skill is also independently invokable: debugging, conversation with your human partner, research dispatch, code review — any work can fire a moment or trigger with no sibling skill in scope.
 
 The CLI surface is shown inline at each trigger; run `slipbox belief --help` for the full command reference.
 
@@ -437,8 +437,8 @@ The CLI surface is shown inline at each trigger; run `slipbox belief --help` for
 | "Routine review" | Not a legitimate trigger. Name the source, task, contradiction, or case that prompted the review. |
 | "I'll bump `last_reviewed` since this is the same belief and nothing changed" | Did you re-read the body and the revision log? If no, do not bump. If yes, the note must say what you re-read against. |
 | "Naming the belief at claim time is busywork" | Naming is what fights theory-in-use drift. Without it, your stated and enacted frameworks diverge silently. |
-| "The user wants a quick recommendation, not a review pass" | Trigger 3 takes one CLI call. The user benefits from the recommendation being grounded in a belief you'd defend, not from speed alone. |
-| "The user didn't ask for beliefs" | They almost never will. Beliefs compound across sessions; the user benefits from coherent reasoning two months from now, not from each session being solo. |
+| "Your human partner wants a quick recommendation, not a review pass" | Trigger 3 takes one CLI call. Your human partner benefits from the recommendation being grounded in a belief you'd defend, not from speed alone. |
+| "Your human partner didn't ask for beliefs" | They almost never will. Beliefs compound across sessions; your human partner benefits from coherent reasoning two months from now, not from each session being solo. |
 | "There's no good slug" | Then the position isn't atomic enough. Sharpen the claim until a sentence-shaped slug fits. |
 | "I'll create the belief but skip the falsifier — the CLI will let me edit later" | The CLI rejects creation without `--falsifier`. Refusing the falsifier is refusing the discipline. |
 

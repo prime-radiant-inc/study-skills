@@ -172,7 +172,7 @@ Skills exist in a three-tier disclosure hierarchy. Author tier 1 first, push tie
 - Links by slug, never by file path
 
 Tier 3 is **not auto-loaded**. The agent reaches for it when:
-- A user/skeptic challenges the procedure and the agent needs to defend it from first principles
+- Your human partner or a skeptic challenges the procedure and the agent needs to defend it from first principles
 - The procedure produces an outcome the SKILL.md text doesn't cover and the agent needs the underlying claim to reason from
 - The agent is updating, refactoring, or stress-testing the skill (write-time)
 - An edge case suggests the procedure may have changed since the skill was authored — pulling tier 3 surfaces whether the underlying claims still hold

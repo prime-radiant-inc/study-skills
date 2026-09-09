@@ -1,6 +1,6 @@
 ---
 name: learning-from-experience
-description: Use mid-task when something procedurally interesting just happened — a skill's procedure didn't fit the situation, a novel approach worked, a failure-then-recovery taught something, a source or user critique bears on an existing skill, or a procedural surprise resists naming.
+description: Use mid-task when something procedurally interesting just happened — a skill's procedure didn't fit the situation, a novel approach worked, a failure-then-recovery taught something, a source or your human partner's critique bears on an existing skill, or a procedural surprise resists naming.
 ---
 
 # Learning from Experience
@@ -31,9 +31,9 @@ Your first approach failed; a second (or third) succeeded. The procedural learni
 
 You're reading a new source and the procedural content refines, contradicts, or completes a procedure an existing skill encodes. Most source reading doesn't fire this moment; the cue is when you read something and a specific existing skill comes to mind as needing the new content.
 
-### Moment 5: user pushback
+### Moment 5: pushback from your human partner
 
-A user critique exposed an assumption a skill encoded silently. The skill went forward as written; the assumption was wrong; the gap is procedural. (The pushback itself may also fire `holding-beliefs` Trigger 1 — they're not mutually exclusive.)
+A critique from your human partner exposed an assumption a skill encoded silently. The skill went forward as written; the assumption was wrong; the gap is procedural. (The pushback itself may also fire `holding-beliefs` Trigger 1 — they're not mutually exclusive.)
 
 ### Moment 6: surprise without a name
 
@@ -81,7 +81,7 @@ The slug names what happened. The file goes in `notes/experience/`. That's it. R
 | "I'll just remember it." / "I'll come back to write this down later." | You won't, and coming back is the rationalization. The whole point of this skill is that procedural learning in transient context evaporates. The moment is now. |
 | "This is too small to capture." | If you'd defend the noticing under pushback, it's not too small. Capture is cheap. |
 | "It's just n=1; it probably doesn't generalize." | Capture doesn't claim generalization. The entry is *evidence* for reflection to consider, not a proposed procedural change. Withholding capture because n=1 is conflating the two modes. |
-| "I'll mention it to the user instead." | Conversation isn't an artifact. The user can't remediate skills at every interaction, and the observation won't survive context clear. Capture it as a file, then mention it if you want. |
+| "I'll mention it to your human partner instead." | Conversation isn't an artifact. Your human partner can't remediate skills at every interaction, and the observation won't survive context clear. Capture it as a file, then mention it if you want. |
 | "I don't have time mid-task." | Three short paragraphs. The flow recovery is faster than you expect. The alternative is the observation evaporating, which is the failure mode this skill exists to prevent. |
 | "The wrinkle wasn't really a problem; the skill worked fine." | Then the entry's "what I noticed" paragraph says so. "The skill worked as written; the case I was worried about was handled cleanly" is a valid capture — it's evidence the skill generalizes, which reflection should also see. |
 

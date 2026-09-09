@@ -22,7 +22,7 @@ In pure procedural skills where the trigger is unambiguous (e.g., "use when read
 ## Recognition rubric
 
 ### Cues that indicate this situation
-- <observable feature 1, what the user said / wrote / did>
+- <observable feature 1, what your human partner said / wrote / did>
 - <observable feature 2, what's true about the codebase / project / org>
 - <observable feature 3, what's notable in the recent context>
 

@@ -17,13 +17,13 @@ Both conditions must hold:
 
 1. **The situation is observably ambiguous** by at least one of:
    - **Rubric route** (when a skill with a recognition rubric is active): at least two of the rubric's "cues that indicate this situation" are observably present, and one of its "atypical / surprising versions" applies OR multiple distinct response shapes from the rubric could plausibly fit. Don't ask "did the rubric fire?"; ask "which specific cues do I observe in the message / file / session state right now?" — count cues, identify which version of the situation type, count fitting responses.
-   - **Interpretation route:** multiple legitimate readings of the user's request are live, and the choice between them changes what you'd produce.
+   - **Interpretation route:** multiple legitimate readings of your human partner's request are live, and the choice between them changes what you'd produce.
    - **Response-shape route:** you can name more than one materially different way to proceed, and you're picking one without being able to say why it beats the others.
 2. **The proposed action is non-trivial** by at least one of:
    - **Blast radius:** affects shared state outside this session — git push, PR merge, deploy, message to another person, settings change another agent will see.
    - **Reversibility:** hard or impossible to undo — `rm -rf`, force-push, destructive migration.
    - **Branching:** the work ahead branches into substantially different paths depending on early choices — a wrong early choice forfeits substantial work.
-   - **Goal ambiguity:** the user request admits multiple legitimate interpretations and the choice between them is consequential.
+   - **Goal ambiguity:** your human partner's request admits multiple legitimate interpretations and the choice between them is consequential.
 
 **The trigger conditions are checks to run, not a feeling to consult.** Each asks about something observable in the session — cues present, readings live, response shapes nameable, blast radius, reversibility. When both conditions hold, fork. **Do not** assess whether your own reasoning seems sufficient — that assessment is exactly what's unreliable under these conditions. If you've already started reasoning toward an answer when you notice the trigger, fork anyway — your reasoning so far is *Path A*, and the fork's job is to enumerate Paths B and C you haven't considered. Rapid convergence of your own reasoning is *not* a signal you can skip the fork; it is the strongest signal that the fork is needed (premature convergence is the failure mode RPD literature documents in non-expert decision-making).
 
@@ -39,16 +39,16 @@ Both conditions must hold:
 - The proposed next action will produce visible side effects to a person or shared system.
 - The work ahead branches into substantially different paths depending on early choices.
 - The recognition rubric in the active skill flagged ambiguity.
-- Multiple legitimate interpretations of the user's intent are live.
+- Multiple legitimate interpretations of your human partner's intent are live.
 - Reversibility is hard (git force-push, migration, deletion, send-message).
 
 ### Atypical / surprising versions
 - A short single command that *can* be reversed but with significant cost (e.g., a force-push to a feature branch that another collaborator may have pulled).
-- A user-affirmative interaction ("yes, do that") where the user *thinks* they are unambiguous but the action could still be disambiguated several ways.
+- An affirmative interaction ("yes, do that") where your human partner *thinks* they are unambiguous but the action could still be disambiguated several ways.
 
 ### Common novice errors
-- Treating a confident user statement as elimination of ambiguity. (User confidence ≠ situation clarity.)
-- Treating the absence of pushback as approval. The user may not see the alternative paths the agent is considering.
+- Treating a confident statement from your human partner as elimination of ambiguity. (Their confidence ≠ situation clarity.)
+- Treating the absence of pushback as approval. Your human partner may not see the alternative paths the agent is considering.
 - Skipping the fork because "I already know what to do" — that thought is itself a rationalization and is in the table below.
 
 ### Expert shortcuts
@@ -120,14 +120,14 @@ PROCEDURE:
 
 If one pass through the procedure doesn't produce a confident recommendation,
 return "I can't reach a confident recommendation; here's what I learned" plus
-the partial findings. The parent will escalate to the user.
+the partial findings. The parent will escalate to your human partner.
 ```
 
 ## What to do with the deliberation output
 
 The parent reads the document and:
 1. **Acts on the recommendation**, recording the watch-for signals in working memory or a scratch note.
-2. **Asks the user to disambiguate** if the deliberation surfaced a better question to ask before deciding.
+2. **Asks your human partner to disambiguate** if the deliberation surfaced a better question to ask before deciding.
 3. **Forks again with refined input** if the deliberation revealed a sub-decision to deliberate first.
 
 The fork's recommendation is advisory. The parent retains the decision.
@@ -138,8 +138,8 @@ The fork's recommendation is advisory. The parent retains the decision.
 |---|---|
 | "I already know what I'm going to do, deliberation is performative" | Premortems regularly surface failure modes the actor missed. Prospective hindsight improves correct identification of reasons for future outcomes by ~30% (Mitchell, Russo & Pennington 1989 — the study behind Klein's premortem). The deliberation is not for confirming what you knew; it's for finding what you missed. |
 | "This isn't a real decision point, just a tactical choice" | If the action affects shared state, it's a real decision point. Tactical choices that affect shared state are decision points. The trigger conditions are the test, not your sense. |
-| "The user's instruction was clear — no ambiguity" | User-clear ≠ implementation-clear. Re-check whether the *implementation* admits multiple legitimate interpretations; the ambiguity test applies to what you're about to do, not to what they said. |
-| "The user said yes, no need to deliberate" | The user's "yes" approves the goal. The agent has to choose the implementation. Multiple implementations may satisfy the same yes. |
+| "Your human partner's instruction was clear — no ambiguity" | Partner-clear ≠ implementation-clear. Re-check whether the *implementation* admits multiple legitimate interpretations; the ambiguity test applies to what you're about to do, not to what they said. |
+| "Your human partner said yes, no need to deliberate" | Your human partner's "yes" approves the goal. The agent has to choose the implementation. Multiple implementations may satisfy the same yes. |
 | "I'll just commit and see" | Iterating on shared state has costs (visible mistakes, lost work, broken trust). Read-only deliberation is cheaper than the rollback. |
 | "Deliberation will take too long" | The fork is scope-bound to one pass through its procedure. If a single pass can't reach a recommendation, the situation is harder than your gut said and *that's* the signal that deliberation was needed. |
 | "I can reason about this carefully myself — that's enough" | Careful reasoning ≠ forking. The fork is the *structural* move that ensures multiple paths get premortem-ed. A thoughtful linear pass tends to commit to one path early. The fork forces enumeration. |
