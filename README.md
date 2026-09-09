@@ -14,7 +14,7 @@ The disciplines are original, built against failure modes specific to agents: co
 
 **Beliefs**
 
-- `holding-beliefs` — the full belief lifecycle. *Formation*: five moments where positions form (load-bearing claim mid-work, pre-invocation articulation pause, pattern across your own work, felt resistance during reading, post-extraction retrospective), with an articulation move and an adversarial test that separates held positions from absorbed paraphrase. *Maintenance*: the artifact discipline (falsifier, stake, revision log, scope), five triggers, and the anti-performance rules that keep the record honest.
+- `holding-beliefs` — the full belief lifecycle. *Formation*: five moments where positions form (load-bearing claim mid-work, pre-invocation articulation pause, pattern across your own work, felt resistance during reading, post-extraction retrospective), with an articulation move and an adversarial test that separates held positions from absorbed paraphrase. *Maintenance*: the artifact discipline (falsifier, stake, revision log, scope), and five triggers that keep the record honest.
 
 **Experience**
 
