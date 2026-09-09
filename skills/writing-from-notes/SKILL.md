@@ -110,7 +110,7 @@ General constraints (apply regardless of type):
 - **Open with the context-problem-response pattern** (from Booth et al., ch. 16). Establish stable common ground; disrupt it with the problem the piece addresses; resolve or promise resolution with the response. This pattern earns the reader's continued attention and works across types — substantive informational pieces benefit from it as much as arguments.
 
 Additional constraints **for arguments specifically** — the five-element check applied at draft time:
-- **Every reason anchored in evidence.** A generalization standing where evidence should be ("most users prefer X") means: find data or weaken the claim.
+- **Every reason anchored in evidence.** A generalization standing where evidence should be ("most people prefer X") means: find data or weaken the claim.
 - **Acknowledgment-and-response present, not optional.** Engage at least one substantive objection; engaging objections builds the reader's trust rather than weakening the case.
 - **Warrants stated only when readers need them** — outside-domain readers, a controversial principle, or a claim readers will resist. Stating obvious principles is condescending.
 - **Point-first.** State the main claim at the end of the introduction, not held back for the conclusion, unless the piece is short enough for the reveal to work — point-first reads faster, is remembered better, and lets the reader decide whether to continue.
