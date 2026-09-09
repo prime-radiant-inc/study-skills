@@ -1,8 +1,8 @@
 # Changelog
 
-## Unreleased
+## v0.8.1 — 2026-09-09
 
-- **"The user" is gone from every skill.** The person you work with is your human partner, and the skills now say so (53 substitutions across nine files) Three description fields changed only in that word.
+- **"The user" is gone from every skill.** The person you work with is your human partner, and the skills now say so (53 substitutions across nine files). Three description fields changed only in that word.
 
 ## v0.8.0 — 2026-09-08
 

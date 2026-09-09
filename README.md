@@ -88,7 +88,7 @@ Everything else — the belief artifact discipline, the experience capture/synth
 
 ## Status
 
-v0.8.0. Cold-start tested on Sonnet 4.6 and Haiku 4.5, re-validated against the consolidated eight-skill set (2026-07-28), and again on the marketplace install with Fable 5.1 (2026-09-08): a fresh agent with only this plugin and a generic "integrate this source" brief self-directs through reading → zettel extraction → belief formation, committing belief artifacts with substantive bodies and observable falsifiers, unsupervised — and captures its own mid-task procedural failures as experience entries. See `CHANGELOG.md` for version history and `docs/` for design specs, plans, and open architectural questions (`docs/IMPROVEMENTS.md`).
+v0.8.1. Cold-start tested on Sonnet 4.6 and Haiku 4.5, re-validated against the consolidated eight-skill set (2026-07-28), and again on the marketplace install with Fable 5.1 (2026-09-08): a fresh agent with only this plugin and a generic "integrate this source" brief self-directs through reading → zettel extraction → belief formation, committing belief artifacts with substantive bodies and observable falsifiers, unsupervised — and captures its own mid-task procedural failures as experience entries. See `CHANGELOG.md` for version history and `docs/` for design specs, plans, and open architectural questions (`docs/IMPROVEMENTS.md`).
 
 ## License
 
