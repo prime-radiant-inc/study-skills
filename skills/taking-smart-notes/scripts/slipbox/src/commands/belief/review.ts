@@ -1,5 +1,5 @@
-import { discoverSlipbox } from "../../discovery";
 import { findBelief, saveBelief } from "../../belief/io";
+import { discoverSlipbox } from "../../discovery";
 import { registerBeliefSub } from "./dispatch";
 
 function todayIso(): string {
@@ -14,7 +14,9 @@ registerBeliefSub("review", async (args) => {
     return 2;
   }
   if (!noteArg) {
-    console.error("slipbox belief review: --note required (state what triggered the review and what re-reading produced)");
+    console.error(
+      "slipbox belief review: --note required (state what triggered the review and what re-reading produced)",
+    );
     return 2;
   }
   const note = noteArg.slice("--note=".length);

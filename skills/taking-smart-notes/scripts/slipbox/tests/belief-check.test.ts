@@ -1,7 +1,7 @@
 import { describe, expect, test } from "bun:test";
-import { mkdtempSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
-import { join } from "node:path";
+import { mkdirSync, mkdtempSync, readFileSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
+import { join } from "node:path";
 import { $ } from "bun";
 
 describe("slipbox check --strict for beliefs", () => {
@@ -9,7 +9,9 @@ describe("slipbox check --strict for beliefs", () => {
     const tmp = mkdtempSync(join(tmpdir(), "sb-bc-"));
     mkdirSync(join(tmp, "notes/zettel"), { recursive: true });
     const cli = `${process.cwd()}/src/cli.ts`;
-    await $`bun run ${cli} belief new b1 --scope=personal --title="B" --falsifier="F"`.cwd(tmp).quiet();
+    await $`bun run ${cli} belief new b1 --scope=personal --title="B" --falsifier="F"`
+      .cwd(tmp)
+      .quiet();
     const r = await $`bun run ${cli} check --strict`.cwd(tmp).nothrow().quiet();
     expect(r.exitCode).toBe(0);
   });
@@ -44,7 +46,9 @@ Body.
     mkdirSync(join(tmp, "notes/zettel"), { recursive: true });
     mkdirSync(join(tmp, "notes/beliefs"), { recursive: true });
     const cli = `${process.cwd()}/src/cli.ts`;
-    await $`bun run ${cli} belief new b1 --scope=personal --title="B" --falsifier="F"`.cwd(tmp).quiet();
+    await $`bun run ${cli} belief new b1 --scope=personal --title="B" --falsifier="F"`
+      .cwd(tmp)
+      .quiet();
     await $`bun run ${cli} new z1 --source=foo --title="Z"`.cwd(tmp).quiet();
     // Manually edit belief to add link without symmetry
     const bp = join(tmp, "notes/beliefs/b1.md");
@@ -59,16 +63,17 @@ Body.
     const tmp = mkdtempSync(join(tmpdir(), "sb-bc-"));
     mkdirSync(join(tmp, "notes/zettel"), { recursive: true });
     const cli = `${process.cwd()}/src/cli.ts`;
-    await $`bun run ${cli} belief new b1 --scope=personal --title="B" --falsifier="F"`.cwd(tmp).quiet();
+    await $`bun run ${cli} belief new b1 --scope=personal --title="B" --falsifier="F"`
+      .cwd(tmp)
+      .quiet();
     // Manually set superseded_by to a non-existent slug, change status
     const bp = join(tmp, "notes/beliefs/b1.md");
     const t = readFileSync(bp, "utf-8");
     writeFileSync(
       bp,
-      t.replace(
-        "schema_version: 1",
-        "schema_version: 1\nsuperseded_by: ghost",
-      ).replace("status: live", "status: superseded"),
+      t
+        .replace("schema_version: 1", "schema_version: 1\nsuperseded_by: ghost")
+        .replace("status: live", "status: superseded"),
     );
     const r = await $`bun run ${cli} check --strict`.cwd(tmp).nothrow().quiet();
     expect(r.exitCode).not.toBe(0);
@@ -79,7 +84,9 @@ Body.
     const tmp = mkdtempSync(join(tmpdir(), "sb-bc-"));
     mkdirSync(join(tmp, "notes/zettel"), { recursive: true });
     const cli = `${process.cwd()}/src/cli.ts`;
-    await $`bun run ${cli} belief new b1 --scope=personal --title="B" --falsifier="F"`.cwd(tmp).quiet();
+    await $`bun run ${cli} belief new b1 --scope=personal --title="B" --falsifier="F"`
+      .cwd(tmp)
+      .quiet();
     // Change status without setting superseded_by
     const bp = join(tmp, "notes/beliefs/b1.md");
     const t = readFileSync(bp, "utf-8");
@@ -93,8 +100,12 @@ Body.
     const tmp = mkdtempSync(join(tmpdir(), "sb-bc-"));
     mkdirSync(join(tmp, "notes/zettel"), { recursive: true });
     const cli = `${process.cwd()}/src/cli.ts`;
-    await $`bun run ${cli} belief new b1 --scope=personal --title="B1" --falsifier="F"`.cwd(tmp).quiet();
-    await $`bun run ${cli} belief new b2 --scope=personal --title="B2" --falsifier="F"`.cwd(tmp).quiet();
+    await $`bun run ${cli} belief new b1 --scope=personal --title="B1" --falsifier="F"`
+      .cwd(tmp)
+      .quiet();
+    await $`bun run ${cli} belief new b2 --scope=personal --title="B2" --falsifier="F"`
+      .cwd(tmp)
+      .quiet();
     // Manually edit b1 to link to b2 without symmetry
     const bp = join(tmp, "notes/beliefs/b1.md");
     const t = readFileSync(bp, "utf-8");
@@ -125,7 +136,9 @@ Body.
     const tmp = mkdtempSync(join(tmpdir(), "sb-bc-"));
     mkdirSync(join(tmp, "notes/zettel"), { recursive: true });
     const cli = `${process.cwd()}/src/cli.ts`;
-    await $`bun run ${cli} belief new b1 --scope=personal --title="B" --falsifier="F"`.cwd(tmp).quiet();
+    await $`bun run ${cli} belief new b1 --scope=personal --title="B" --falsifier="F"`
+      .cwd(tmp)
+      .quiet();
     await $`bun run ${cli} new z1 --source=foo --title="Z"`.cwd(tmp).quiet();
     // Manually edit z1 to add a link to b1 without symmetry
     const zp = join(tmp, "notes/zettel/z1.md");

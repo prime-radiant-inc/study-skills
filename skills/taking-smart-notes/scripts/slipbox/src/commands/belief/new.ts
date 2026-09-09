@@ -1,5 +1,5 @@
-import { discoverSlipbox } from "../../discovery";
 import { findBelief, saveBelief } from "../../belief/io";
+import { discoverSlipbox } from "../../discovery";
 import { registerBeliefSub } from "./dispatch";
 
 const SLUG_REGEX = /^[a-z0-9]+(-[a-z0-9]+)*$/;

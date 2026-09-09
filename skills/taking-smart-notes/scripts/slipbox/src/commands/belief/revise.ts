@@ -1,6 +1,6 @@
-import { discoverSlipbox } from "../../discovery";
-import { findBelief, saveBelief } from "../../belief/io";
 import type { BeliefStatus } from "../../belief/frontmatter";
+import { findBelief, saveBelief } from "../../belief/io";
+import { discoverSlipbox } from "../../discovery";
 import { registerBeliefSub } from "./dispatch";
 
 function todayIso(): string {
@@ -63,7 +63,9 @@ registerBeliefSub("revise", async (args) => {
     return 2;
   }
   if (supersededBy && !findBelief(sb, supersededBy)) {
-    console.error(`slipbox belief revise: --superseded-by=${supersededBy} does not resolve to an existing belief`);
+    console.error(
+      `slipbox belief revise: --superseded-by=${supersededBy} does not resolve to an existing belief`,
+    );
     return 1;
   }
   const today = todayIso();

@@ -34,16 +34,12 @@ export function beliefPath(sb: Slipbox, scope: string, slug: string): string {
   // Trade-scoped: must equal active trade.
   if (sb.layout !== "trade") {
     throw new Error(
-      `cannot create belief in trade scope '${scope}' on a flat slip-box. ` +
-        `Either reinitialise with trade support (\`slipbox init --trade=${scope}\` from the slip-box root) ` +
-        `or use --scope=personal.`,
+      `cannot create belief in trade scope '${scope}' on a flat slip-box. Either reinitialise with trade support (\`slipbox init --trade=${scope}\` from the slip-box root) or use --scope=personal.`,
     );
   }
   if (sb.trade !== scope) {
     throw new Error(
-      `scope '${scope}' does not match active trade '${sb.trade}'. ` +
-        `Either pass --trade=${scope} on the slipbox CLI invocation, ` +
-        `or run \`slipbox init --trade=${scope}\` from the slip-box root to add a new trade.`,
+      `scope '${scope}' does not match active trade '${sb.trade}'. Either pass --trade=${scope} on the slipbox CLI invocation, or run \`slipbox init --trade=${scope}\` from the slip-box root to add a new trade.`,
     );
   }
   return join(sb.beliefsDir, `${slug}.md`);

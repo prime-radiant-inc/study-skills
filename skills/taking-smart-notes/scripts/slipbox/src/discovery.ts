@@ -10,8 +10,8 @@ export interface Slipbox {
   embeddingsDir: string;
   piecesDir: string;
   personalBeliefsDir: string; // always <root>/notes/beliefs
-  beliefsDir: string;          // active scope's beliefs (flat: same as personal; trade: <trade-root>/beliefs)
-  skillsDirs: string[];        // project skills layer; walkers no-op on missing dirs
+  beliefsDir: string; // active scope's beliefs (flat: same as personal; trade: <trade-root>/beliefs)
+  skillsDirs: string[]; // project skills layer; walkers no-op on missing dirs
 }
 
 // Default <root>/skills; SLIPBOX_SKILLS_DIRS (colon-separated, absolute or

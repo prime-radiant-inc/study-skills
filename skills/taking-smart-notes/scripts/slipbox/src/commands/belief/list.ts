@@ -1,5 +1,5 @@
-import { discoverSlipbox } from "../../discovery";
 import { listBeliefs } from "../../belief/io";
+import { discoverSlipbox } from "../../discovery";
 import { registerBeliefSub } from "./dispatch";
 
 type SortKey = "last_reviewed" | "created" | "title";
@@ -69,7 +69,10 @@ registerBeliefSub("list", async (args) => {
     );
   } else {
     for (const b of beliefs) {
-      const t = b.frontmatter.title.length > 60 ? `${b.frontmatter.title.slice(0, 57)}...` : b.frontmatter.title;
+      const t =
+        b.frontmatter.title.length > 60
+          ? `${b.frontmatter.title.slice(0, 57)}...`
+          : b.frontmatter.title;
       console.log(
         `${b.slug.padEnd(40)} [${b.frontmatter.scope}] ${b.frontmatter.status} ${b.frontmatter.last_reviewed}  ${t}`,
       );

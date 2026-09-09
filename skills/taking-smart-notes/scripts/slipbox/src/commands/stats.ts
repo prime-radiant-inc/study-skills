@@ -1,6 +1,6 @@
+import { listBeliefs } from "../belief/io";
 import { discoverSlipbox } from "../discovery";
 import { listZettels, loadZettel } from "../zettel";
-import { listBeliefs } from "../belief/io";
 import { register } from "./index";
 
 const DEFAULT_WINDOW_DAYS = 30;
@@ -78,8 +78,12 @@ register("stats", async (args) => {
     console.log(`Cross-source link ratio: ${(result.crossSourceLinkRatio * 100).toFixed(1)}%`);
     console.log(`\nTop ${result.topHubs.length} hubs:`);
     for (const h of result.topHubs) console.log(`  ${h.degree}  ${h.slug}`);
-    console.log(`\nBeliefs: ${result.beliefs.total} (live: ${result.beliefs.live}, superseded: ${result.beliefs.superseded}, retired: ${result.beliefs.retired})`);
-    console.log(`In last ${windowDays} days (live only): formed ${result.beliefs.formedInWindow}, reviewed ${result.beliefs.reviewedInWindow}`);
+    console.log(
+      `\nBeliefs: ${result.beliefs.total} (live: ${result.beliefs.live}, superseded: ${result.beliefs.superseded}, retired: ${result.beliefs.retired})`,
+    );
+    console.log(
+      `In last ${windowDays} days (live only): formed ${result.beliefs.formedInWindow}, reviewed ${result.beliefs.reviewedInWindow}`,
+    );
   }
   return 0;
 });

@@ -1,5 +1,5 @@
-import { discoverSlipbox } from "../../discovery";
 import { findBelief, listBeliefs } from "../../belief/io";
+import { discoverSlipbox } from "../../discovery";
 import { listZettels, loadZettel } from "../../zettel";
 import { registerBeliefSub } from "./dispatch";
 

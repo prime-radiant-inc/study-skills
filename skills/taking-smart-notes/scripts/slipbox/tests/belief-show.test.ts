@@ -1,7 +1,7 @@
 import { describe, expect, test } from "bun:test";
-import { mkdtempSync, mkdirSync } from "node:fs";
-import { join } from "node:path";
+import { mkdirSync, mkdtempSync } from "node:fs";
 import { tmpdir } from "node:os";
+import { join } from "node:path";
 import { $ } from "bun";
 
 describe("slipbox belief show", () => {
@@ -9,7 +9,9 @@ describe("slipbox belief show", () => {
     const tmp = mkdtempSync(join(tmpdir(), "sb-bs-"));
     mkdirSync(join(tmp, "notes/zettel"), { recursive: true });
     const cli = `${process.cwd()}/src/cli.ts`;
-    await $`bun run ${cli} belief new b1 --scope=personal --title="B1" --falsifier="F"`.cwd(tmp).quiet();
+    await $`bun run ${cli} belief new b1 --scope=personal --title="B1" --falsifier="F"`
+      .cwd(tmp)
+      .quiet();
     const r = await $`bun run ${cli} belief show b1`.cwd(tmp).nothrow().quiet();
     expect(r.exitCode).toBe(0);
     const out = r.stdout.toString();

@@ -122,9 +122,7 @@ export function validateBeliefs(
       if (targetBelief) {
         if (!targetBelief.links.includes(b.slug)) {
           counters.beliefAsymmetric++;
-          details.push(
-            `belief asymmetric: ${b.slug} -> ${target} (belief has no return)`,
-          );
+          details.push(`belief asymmetric: ${b.slug} -> ${target} (belief has no return)`);
         }
         continue;
       }
@@ -132,9 +130,7 @@ export function validateBeliefs(
       if (z) {
         if (!z.frontmatter.links.includes(b.slug)) {
           counters.beliefAsymmetric++;
-          details.push(
-            `belief asymmetric: ${b.slug} -> ${target} (zettel has no return)`,
-          );
+          details.push(`belief asymmetric: ${b.slug} -> ${target} (zettel has no return)`);
         }
         continue;
       }
@@ -143,9 +139,7 @@ export function validateBeliefs(
         continue;
       }
       counters.beliefBroken++;
-      details.push(
-        `belief broken: ${b.slug} -> ${target} (not a belief, zettel, or source)`,
-      );
+      details.push(`belief broken: ${b.slug} -> ${target} (not a belief, zettel, or source)`);
     }
   }
 }

@@ -37,15 +37,12 @@ function yamlDoubleQuoted(s: string): string {
 }
 
 function quoteColonValues(yamlText: string): string {
-  return yamlText.replace(
-    /^(title|falsifier|superseded_by):\s+(.+)$/gm,
-    (_match, key, value) => {
-      if (value.includes(": ") && !value.startsWith('"') && !value.startsWith("'")) {
-        return `${key}: "${value.replace(/"/g, '\\"')}"`;
-      }
-      return _match;
-    },
-  );
+  return yamlText.replace(/^(title|falsifier|superseded_by):\s+(.+)$/gm, (_match, key, value) => {
+    if (value.includes(": ") && !value.startsWith('"') && !value.startsWith("'")) {
+      return `${key}: "${value.replace(/"/g, '\\"')}"`;
+    }
+    return _match;
+  });
 }
 
 export function parseBelief(text: string): ParsedBelief {

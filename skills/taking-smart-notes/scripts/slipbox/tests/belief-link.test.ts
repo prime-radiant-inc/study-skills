@@ -1,15 +1,19 @@
 import { describe, expect, test } from "bun:test";
-import { mkdtempSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
-import { join } from "node:path";
+import { mkdirSync, mkdtempSync, readFileSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
+import { join } from "node:path";
 import { $ } from "bun";
 
 async function setup() {
   const tmp = mkdtempSync(join(tmpdir(), "sb-blnk-"));
   mkdirSync(join(tmp, "notes/zettel"), { recursive: true });
   const cli = `${process.cwd()}/src/cli.ts`;
-  await $`bun run ${cli} belief new b1 --scope=personal --title="B1" --falsifier="F"`.cwd(tmp).quiet();
-  await $`bun run ${cli} belief new b2 --scope=personal --title="B2" --falsifier="F"`.cwd(tmp).quiet();
+  await $`bun run ${cli} belief new b1 --scope=personal --title="B1" --falsifier="F"`
+    .cwd(tmp)
+    .quiet();
+  await $`bun run ${cli} belief new b2 --scope=personal --title="B2" --falsifier="F"`
+    .cwd(tmp)
+    .quiet();
   await $`bun run ${cli} new z1 --source=foo --title="Z1"`.cwd(tmp).quiet();
   return { tmp, cli };
 }

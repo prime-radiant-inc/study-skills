@@ -1,7 +1,7 @@
 import { describe, expect, test } from "bun:test";
-import { mkdtempSync, mkdirSync, existsSync, readFileSync } from "node:fs";
-import { join } from "node:path";
+import { existsSync, mkdirSync, mkdtempSync, readFileSync } from "node:fs";
 import { tmpdir } from "node:os";
+import { join } from "node:path";
 import { $ } from "bun";
 
 describe("slipbox belief new", () => {
@@ -9,7 +9,11 @@ describe("slipbox belief new", () => {
     const tmp = mkdtempSync(join(tmpdir(), "sb-bn-"));
     mkdirSync(join(tmp, "notes/zettel"), { recursive: true });
     const cli = `${process.cwd()}/src/cli.ts`;
-    const r = await $`bun run ${cli} belief new my-belief --scope=personal --title="My belief" --falsifier="F"`.cwd(tmp).nothrow().quiet();
+    const r =
+      await $`bun run ${cli} belief new my-belief --scope=personal --title="My belief" --falsifier="F"`
+        .cwd(tmp)
+        .nothrow()
+        .quiet();
     expect(r.exitCode).toBe(0);
     const path = join(tmp, "notes/beliefs/my-belief.md");
     expect(existsSync(path)).toBe(true);
@@ -27,7 +31,11 @@ describe("slipbox belief new", () => {
     const tmp = mkdtempSync(join(tmpdir(), "sb-bn-"));
     mkdirSync(join(tmp, "notes/zettel"), { recursive: true });
     const cli = `${process.cwd()}/src/cli.ts`;
-    const r = await $`bun run ${cli} belief new b --scope=personal --title="B" --falsifier="F" --note="Spawned after reading X: the claim held up"`.cwd(tmp).nothrow().quiet();
+    const r =
+      await $`bun run ${cli} belief new b --scope=personal --title="B" --falsifier="F" --note="Spawned after reading X: the claim held up"`
+        .cwd(tmp)
+        .nothrow()
+        .quiet();
     expect(r.exitCode).toBe(0);
     const text = readFileSync(join(tmp, "notes/beliefs/b.md"), "utf-8");
     expect(text).toContain("— created\nSpawned after reading X: the claim held up\n");
@@ -38,7 +46,10 @@ describe("slipbox belief new", () => {
     const tmp = mkdtempSync(join(tmpdir(), "sb-bn-"));
     mkdirSync(join(tmp, "notes/zettel"), { recursive: true });
     const cli = `${process.cwd()}/src/cli.ts`;
-    await $`bun run ${cli} belief new b --scope=personal --title="B" --falsifier="F"`.cwd(tmp).nothrow().quiet();
+    await $`bun run ${cli} belief new b --scope=personal --title="B" --falsifier="F"`
+      .cwd(tmp)
+      .nothrow()
+      .quiet();
     const text = readFileSync(join(tmp, "notes/beliefs/b.md"), "utf-8");
     expect(text).toContain("— created\nInitial belief; no trigger noted.\n");
   });
@@ -47,7 +58,10 @@ describe("slipbox belief new", () => {
     const tmp = mkdtempSync(join(tmpdir(), "sb-bn-"));
     mkdirSync(join(tmp, "notes/trades/tpm/zettel"), { recursive: true });
     const cli = `${process.cwd()}/src/cli.ts`;
-    const r = await $`bun run ${cli} belief new b1 --scope=tpm --title="B1" --falsifier="F"`.cwd(tmp).nothrow().quiet();
+    const r = await $`bun run ${cli} belief new b1 --scope=tpm --title="B1" --falsifier="F"`
+      .cwd(tmp)
+      .nothrow()
+      .quiet();
     expect(r.exitCode).toBe(0);
     expect(existsSync(join(tmp, "notes/trades/tpm/beliefs/b1.md"))).toBe(true);
   });
@@ -56,7 +70,10 @@ describe("slipbox belief new", () => {
     const tmp = mkdtempSync(join(tmpdir(), "sb-bn-"));
     mkdirSync(join(tmp, "notes/zettel"), { recursive: true });
     const cli = `${process.cwd()}/src/cli.ts`;
-    const r = await $`bun run ${cli} belief new BadSlug --scope=personal --title=X --falsifier=F`.cwd(tmp).nothrow().quiet();
+    const r = await $`bun run ${cli} belief new BadSlug --scope=personal --title=X --falsifier=F`
+      .cwd(tmp)
+      .nothrow()
+      .quiet();
     expect(r.exitCode).toBe(2);
     expect(r.stderr.toString()).toContain("kebab-case");
   });
@@ -65,8 +82,14 @@ describe("slipbox belief new", () => {
     const tmp = mkdtempSync(join(tmpdir(), "sb-bn-"));
     mkdirSync(join(tmp, "notes/trades/tpm/zettel"), { recursive: true });
     const cli = `${process.cwd()}/src/cli.ts`;
-    await $`bun run ${cli} belief new dup --scope=tpm --title="A" --falsifier="F"`.cwd(tmp).nothrow().quiet();
-    const r = await $`bun run ${cli} belief new dup --scope=personal --title="B" --falsifier="F"`.cwd(tmp).nothrow().quiet();
+    await $`bun run ${cli} belief new dup --scope=tpm --title="A" --falsifier="F"`
+      .cwd(tmp)
+      .nothrow()
+      .quiet();
+    const r = await $`bun run ${cli} belief new dup --scope=personal --title="B" --falsifier="F"`
+      .cwd(tmp)
+      .nothrow()
+      .quiet();
     expect(r.exitCode).toBe(1);
     expect(r.stderr.toString()).toContain("already exists");
   });
@@ -83,7 +106,10 @@ describe("slipbox belief new", () => {
     const tmp = mkdtempSync(join(tmpdir(), "sb-bn-"));
     mkdirSync(join(tmp, "notes/zettel"), { recursive: true });
     const cli = `${process.cwd()}/src/cli.ts`;
-    const r = await $`bun run ${cli} belief new b1 --scope=tpm --title="B1" --falsifier="F"`.cwd(tmp).nothrow().quiet();
+    const r = await $`bun run ${cli} belief new b1 --scope=tpm --title="B1" --falsifier="F"`
+      .cwd(tmp)
+      .nothrow()
+      .quiet();
     expect(r.exitCode).not.toBe(0);
     const stderr = r.stderr.toString();
     expect(stderr).toContain("flat slip-box");
@@ -94,7 +120,10 @@ describe("slipbox belief new", () => {
     const tmp = mkdtempSync(join(tmpdir(), "sb-bn-"));
     mkdirSync(join(tmp, "notes/trades/tpm/zettel"), { recursive: true });
     const cli = `${process.cwd()}/src/cli.ts`;
-    const r = await $`bun run ${cli} belief new b1 --scope=accounting --title="B1" --falsifier="F"`.cwd(tmp).nothrow().quiet();
+    const r = await $`bun run ${cli} belief new b1 --scope=accounting --title="B1" --falsifier="F"`
+      .cwd(tmp)
+      .nothrow()
+      .quiet();
     expect(r.exitCode).not.toBe(0);
     const stderr = r.stderr.toString();
     expect(stderr).toContain("active trade 'tpm'");

@@ -1,14 +1,11 @@
 import { existsSync } from "node:fs";
 import { join } from "node:path";
-import { type Slipbox, discoverSlipbox } from "../../discovery";
 import { type FoundBelief, findBelief, saveBelief } from "../../belief/io";
+import { type Slipbox, discoverSlipbox } from "../../discovery";
 import { loadZettel, saveZettel, zettelPath } from "../../zettel";
 import { registerBeliefSub } from "./dispatch";
 
-type Endpoint =
-  | { kind: "belief"; belief: FoundBelief }
-  | { kind: "zettel" }
-  | { kind: "source" };
+type Endpoint = { kind: "belief"; belief: FoundBelief } | { kind: "zettel" } | { kind: "source" };
 
 function resolveEndpoint(sb: Slipbox, slug: string): Endpoint | null {
   const belief = findBelief(sb, slug);
